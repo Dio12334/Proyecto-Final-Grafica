@@ -111,9 +111,9 @@ std::vector<float> GenerateTunnel(std::vector<int>& numberOfPointsPerCylinder){
 
 std::vector<unsigned int> GenerateIndices(const std::vector<float>& points, const std::vector<int>& pointsPerCylinder){
 	std::vector<unsigned int> indices;
-	std::cout << "Points per Cylinder:\n";
-	for(size_t i = 0; i < pointsPerCylinder.size(); ++i)
-		std::cout << pointsPerCylinder[i] << std::endl;
+	/* std::cout << "Points per Cylinder:\n"; */
+	/* for(size_t i = 0; i < pointsPerCylinder.size(); ++i) */
+	/* 	std::cout << pointsPerCylinder[i] << std::endl; */
 	
 	size_t indexBeg = 0, indexEnd;
 	for(size_t i = 0; i < pointsPerCylinder.size(); ++i){
@@ -123,7 +123,7 @@ std::vector<unsigned int> GenerateIndices(const std::vector<float>& points, cons
 			if((j + 1) % 72 != 0 )
 				indices.push_back(j + 1);
 			else 
-				indices.push_back(indexBeg);
+				indices.push_back(j - 71);
 			indices.push_back(j + 72);
 		}
 		indexBeg = indexEnd;
